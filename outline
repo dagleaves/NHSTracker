@@ -1,0 +1,50 @@
+
+1. Top-level menu
+    1. File
+        - New File
+            - Create New DF w/ Outline
+        - Open File
+            - Request file w/ Sys Explorer
+            - Open the file
+        - Exit
+    2. Edit
+        -
+    3. Save
+        - If not saved to disk, open sys explorer to write to disk
+        - Else write changes to disk
+    4. Save As
+        - Open sys explorer to retrieve new file name and location
+        - Write to disk
+        - Update bottom status-bar
+    5. Exit
+        - If open file and not saved
+            - Pop up alert with "Yes" or "No" to save the file before closing
+                - Yes:
+                    - If new file:
+                        - Open sys explorer to find desired file name and location
+                        - Write to disk and exit
+                    - Else:
+                        - Write changes to disk and exit
+                - No:
+                    -  Exit (and do not save)
+        - Else:
+            - Exit
+
+2. Create New Spreadsheet
+    - Same method as New File
+3. Open Spreadsheet
+    - Same method as Open File
+4. Bottom status-bar
+    - Display current file name and location
+
+Create New Spreadsheet
+    1. Spreadsheet name
+    2. Open dataframe but do not write to disk until exit
+
+Opened Spreadsheet
+    1. Add student
+    2. Remove student
+    3. Add hours
+    4. Get hours
+    5. Search student
+    5. Open spreadsheet
