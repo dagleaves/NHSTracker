@@ -1,8 +1,8 @@
 import pandas as pd
-from tkinter import filedialog
+import tkinter as tk
 
 
-class DF:
+class DFManager:
     def __init__(self, name):
         self.df1 = pd.DataFrame
         self.df2 = pd.DataFrame
@@ -11,6 +11,25 @@ class DF:
         self.dir = "/"
         self.file_name = name
         self.saved = False
+
+    def get_file_name(self):
+        return self.file_name
+
+    def get_saved(self):
+        return self.saved
+
+    def open_excel(self):
+        opened = self.set_dir()
+        try:
+            self.df1 = pd.read_excel(opened, 'Freshman')
+            self.df2 = pd.read_excel(opened, 'Sophomore')
+            self.df3 = pd.read_excel(opened, 'Junior')
+            self.df4 = pd.read_excel(opened, 'Senior')
+        except:
+            print(tk.messagebox.askyesno(title='Invalid Spreadsheet',
+                                         message='Error: Invalid spreadsheet format detected'))
+            # TODO: Check pandas dataframe error code
+
 
     def save(self):
         with pd.ExcelWriter(self.dir + self.file_name) as writer:
@@ -21,9 +40,9 @@ class DF:
         self.saved = True
 
     def set_dir(self):
-        self.dir = filedialog.askopenfilename(initialdir="/", title="Open Spreadsheet",
-                                              filetypes=[("Excel Files", ".xls .xlsx")])
+        self.dir = tk.filedialog.askopenfilename(initialdir="/", title="Open Spreadsheet",
+                                                 filetypes=[("Excel Files", ".xls .xlsx")])
         dir_split = self.dir.split('/')
         self.file_name = dir_split[-1]
-        print(self.dir)
-        print(self.file_name)
+        return self.dir
+
