@@ -14,10 +14,14 @@ class DFManager:
     saved = None
 
     def __init__(self, name):
-        self.df1 = pd.DataFrame(columns=['Names', 'Total Hours', 'History -->'])
-        self.df2 = pd.DataFrame(columns=['Names', 'Total Hours', 'History -->'])
-        self.df3 = pd.DataFrame(columns=['Names', 'Total Hours', 'History -->'])
-        self.df4 = pd.DataFrame(columns=['Names', 'Total Hours', 'History -->'])
+        self.df1 = pd.DataFrame(
+            columns=['Names', 'Total Hours', 'History -->'])
+        self.df2 = pd.DataFrame(
+            columns=['Names', 'Total Hours', 'History -->'])
+        self.df3 = pd.DataFrame(
+            columns=['Names', 'Total Hours', 'History -->'])
+        self.df4 = pd.DataFrame(
+            columns=['Names', 'Total Hours', 'History -->'])
         self.dir = "/"
         # self.file_name = name
         self.saved = False
@@ -29,7 +33,8 @@ class DFManager:
         return self.saved
 
     def set_dir(self):
-        self.dir = filedialog.askopenfilename(title="Open Spreadsheet", filetypes=[("Excel Files", ".xls .xlsx")])
+        self.dir = filedialog.askopenfilename(title="Open Spreadsheet", filetypes=[
+                                              ("Excel Files", ".xls .xlsx")])
         # dir_split = self.dir.split('/')
         # self.file_name = dir_split[-1]
         return self.dir
@@ -73,4 +78,3 @@ class DFManager:
         self.dir = filedialog.asksaveasfilename(title="Save Spreadsheet", defaultextension='.xlsx',
                                                       filetypes=[("Excel Files", ".xls .xlsx")])
         self.save()
-
